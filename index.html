@@ -4,12 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       PAGE TITLE — shown in the browser tab
+       ============================================================ -->
   <title>Leon Wang</title>
+
+  <!-- Google Fonts — the two typefaces used on this page -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
+
   <style>
+    /* ============================================================
+       COLOR PALETTE
+       Change these values to restyle the whole page at once.
+       --bg      : page background
+       --ink     : main text color
+       --soft    : muted/grey text
+       --line    : border / divider color
+       --accent  : red highlight color (headings, links on hover)
+       --card    : light grey used for hover backgrounds
+       ============================================================ */
     :root {
       --bg: #fafaf8;
       --ink: #111110;
@@ -36,7 +53,9 @@
       font-weight: 300;
     }
 
-    /* NAV */
+    /* ============================================================
+       TOP NAVIGATION BAR
+       ============================================================ */
     nav {
       position: fixed;
       top: 0;
@@ -52,12 +71,14 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* Name shown on the left side of the nav bar */
     .nav-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
       color: var(--ink);
     }
 
+    /* Navigation links on the right side of the nav bar */
     .nav-links {
       display: flex;
       gap: 2.5rem;
@@ -78,7 +99,9 @@
       color: var(--ink);
     }
 
-    /* HERO */
+    /* ============================================================
+       HERO SECTION (the full-screen intro)
+       ============================================================ */
     #hero {
       min-height: 100vh;
       display: grid;
@@ -92,6 +115,7 @@
       width: 100%;
     }
 
+    /* Small label above the name (e.g. "ML Researcher & Software Engineer") */
     .hero-eyebrow {
       font-size: 0.78rem;
       font-weight: 400;
@@ -103,6 +127,7 @@
       animation: fadeIn 0.7s 0.1s forwards;
     }
 
+    /* Large name heading */
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3.2rem, 7vw, 6rem);
@@ -114,11 +139,13 @@
       animation: fadeIn 0.7s 0.25s forwards;
     }
 
+    /* The italic part of the name rendered in accent color */
     h1 em {
       font-style: italic;
       color: var(--accent);
     }
 
+    /* Short bio paragraph below the name */
     .hero-bio {
       max-width: 480px;
       font-size: 1rem;
@@ -129,6 +156,7 @@
       animation: fadeIn 0.7s 0.4s forwards;
     }
 
+    /* Row of links ("View work", "Get in touch", "Resume") */
     .hero-links {
       display: flex;
       gap: 1.5rem;
@@ -152,6 +180,7 @@
       border-color: var(--accent);
     }
 
+    /* Animated "Scroll" indicator at the bottom of the hero */
     .hero-scroll {
       position: absolute;
       bottom: 2.5rem;
@@ -198,7 +227,10 @@
       }
     }
 
-    /* SECTIONS */
+    /* ============================================================
+       SHARED SECTION STYLES
+       Every section (Skills, Projects, Contact) uses these.
+       ============================================================ */
     .section-wrap {
       max-width: 900px;
       margin: 0 auto;
@@ -206,6 +238,7 @@
       border-top: 1px solid var(--line);
     }
 
+    /* Row that holds the section number + heading */
     .section-header {
       display: flex;
       align-items: baseline;
@@ -213,6 +246,7 @@
       margin-bottom: 4rem;
     }
 
+    /* Small "01 — Skills" label */
     .section-num {
       font-size: 0.72rem;
       font-weight: 400;
@@ -222,6 +256,7 @@
       white-space: nowrap;
     }
 
+    /* Section heading (h2) */
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -230,7 +265,10 @@
       line-height: 1.1;
     }
 
-    /* SKILLS */
+    /* ============================================================
+       SKILLS TABLE
+       Each row = one skill category.
+       ============================================================ */
     .skills-table {
       width: 100%;
       border-collapse: collapse;
@@ -254,6 +292,7 @@
       vertical-align: top;
     }
 
+    /* Left column: category label (e.g. "ML / AI") */
     .skill-category {
       font-size: 0.75rem;
       font-weight: 500;
@@ -265,18 +304,23 @@
       white-space: nowrap;
     }
 
+    /* Right column: comma/dot-separated list of skills */
     .skill-items {
       font-size: 0.92rem;
       color: var(--ink);
       line-height: 1.6;
     }
 
-    /* PROJECTS */
+    /* ============================================================
+       PROJECTS LIST
+       Each project = one .project-row.
+       ============================================================ */
     .projects-list {
       display: flex;
       flex-direction: column;
     }
 
+    /* Two-column row: description on left, tags on right */
     .project-row {
       display: grid;
       grid-template-columns: 3fr 1fr;
@@ -295,6 +339,7 @@
       color: var(--accent);
     }
 
+    /* Small label above the project title (e.g. "Multi-Agent System") */
     .project-label {
       font-size: 0.7rem;
       font-weight: 400;
@@ -304,6 +349,7 @@
       margin-bottom: 0.6rem;
     }
 
+    /* Project title */
     .project-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.35rem;
@@ -313,6 +359,7 @@
       line-height: 1.3;
     }
 
+    /* One-sentence project description */
     .project-desc {
       font-size: 0.88rem;
       color: var(--soft);
@@ -320,6 +367,7 @@
       max-width: 500px;
     }
 
+    /* Right column: pill-shaped technology tags */
     .project-tags-col {
       display: flex;
       flex-wrap: wrap;
@@ -328,6 +376,7 @@
       padding-top: 1.8rem;
     }
 
+    /* Individual tag pill */
     .ptag {
       font-size: 0.68rem;
       font-weight: 400;
@@ -339,7 +388,9 @@
       background: var(--card);
     }
 
-    /* CONTACT */
+    /* ============================================================
+       CONTACT SECTION
+       ============================================================ */
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -347,6 +398,7 @@
       align-items: start;
     }
 
+    /* Left column: short message + email address */
     .contact-left p {
       font-size: 0.95rem;
       color: var(--soft);
@@ -354,6 +406,7 @@
       margin-bottom: 2rem;
     }
 
+    /* Clickable email address in italic accent color */
     .contact-email {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
@@ -368,6 +421,7 @@
       border-color: var(--accent);
     }
 
+    /* Right column: each social/resume link as a row with an arrow */
     .contact-link-row {
       display: flex;
       justify-content: space-between;
@@ -394,7 +448,9 @@
       text-transform: uppercase;
     }
 
-    /* FOOTER */
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     footer {
       border-top: 1px solid var(--line);
       padding: 2rem 4rem;
@@ -409,7 +465,11 @@
       letter-spacing: 0.04em;
     }
 
-    /* REVEAL */
+    /* ============================================================
+       SCROLL-REVEAL ANIMATION
+       Sections start invisible and slide in when scrolled into view.
+       Controlled by the JavaScript at the bottom of the file.
+       ============================================================ */
     .reveal {
       opacity: 0;
       transform: translateY(20px);
@@ -433,6 +493,9 @@
       }
     }
 
+    /* ============================================================
+       MOBILE STYLES (screens narrower than 700px)
+       ============================================================ */
     @media (max-width: 700px) {
       nav {
         padding: 1.2rem 1.5rem;
@@ -475,37 +538,65 @@
 
 <body>
 
+  <!-- ============================================================
+       TOP NAVIGATION BAR
+       - Left side: your name
+       - Right side: links that jump to each section on the page
+       ============================================================ -->
   <nav>
-    <span class="nav-name">Leon Wang</span>
+    <span class="nav-name">Leon Wang</span>  <!-- Your name shown top-left -->
     <ul class="nav-links">
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#skills">Skills</a></li>      <!-- Links to the Skills section -->
+      <li><a href="#projects">Projects</a></li>  <!-- Links to the Projects section -->
+      <li><a href="#contact">Contact</a></li>    <!-- Links to the Contact section -->
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- ============================================================
+       HERO SECTION
+       The full-screen intro visitors see first.
+       Change the eyebrow, name, bio, and links below.
+       ============================================================ -->
   <section id="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">ML Researcher &amp; Software Engineer</p>
+
+      <!-- Small text above your name — your title/role -->
+      <p class="hero-eyebrow">ML Researcher &amp; AI Engineer</p>
+
+      <!-- Your name — the <em> tag makes "Wang" italic and red -->
       <h1>Zixu (Leon)<br><em>Wang</em></h1>
+
+      <!-- Short bio paragraph -->
       <p class="hero-bio">
-        ECE graduate student at the University of Central Florida. I build intelligent systems at the intersection of
-        neural networks, reinforcement learning, and neuro-symbolic AI.
+        AI Engineer with 5+ years of work/research experience in Python, Deep Learning and LLMs. 
+        Systematic thinker in model development, translating analytical results into data-driven insights. 
+        Proven ability to improve system reliability and efficiency through robust modeling and production-focused engineering.
+
+.
       </p>
+
+      <!-- Call-to-action links row -->
       <div class="hero-links">
-        <a href="#projects">View work</a>
-        <a href="#contact">Get in touch</a>
-        <a href="#">Resume ↓</a>
+        <a href="#projects">View work</a>   <!-- Scrolls to Projects -->
+        <a href="#contact">Get in touch</a> <!-- Scrolls to Contact -->
+        <a href="#">Resume ↓</a>            <!-- TODO: replace # with your resume PDF link -->
       </div>
     </div>
+
+    <!-- Animated scroll indicator — purely decorative, no need to change -->
     <div class="hero-scroll">
       <span>Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ============================================================
+       SKILLS SECTION
+       Each <tr> is one row in the skills table.
+       - First <td>  : category label (e.g. "ML / AI")
+       - Second <td> : skills separated by · (middle dot)
+       To add a new category: copy any <tr>…</tr> block and edit it.
+       ============================================================ -->
   <div id="skills">
     <div class="section-wrap reveal">
       <div class="section-header">
@@ -513,33 +604,56 @@
         <h2>What I know</h2>
       </div>
       <table class="skills-table">
+
+        <!-- Row 1: ML / AI skills -->
         <tr>
           <td class="skill-category">ML / AI</td>
-          <td class="skill-items">PyTorch · TensorFlow · LangGraph · RAG Pipelines · Reinforcement Learning · LLM
-            Evaluation · NumPy</td>
+          <td class="skill-items"> Generative AI · Agentic AI · PyTorch · LLMs ·
+            scipy · NumPy</td>
         </tr>
+
+        <!-- Row 2: Programming languages -->
         <tr>
           <td class="skill-category">Languages</td>
           <td class="skill-items">Python · C / C++ · SQL · JavaScript · ARM Assembly · Verilog</td>
         </tr>
+
+        <!-- Row 3: Infrastructure / DevOps tools -->
         <tr>
           <td class="skill-category">Infrastructure</td>
           <td class="skill-items">MongoDB · ChromaDB · AWS · Docker · Git · Linux · CUDA</td>
         </tr>
+
+        <!-- Row 4: Research areas -->
         <tr>
           <td class="skill-category">Research</td>
           <td class="skill-items">Neuromorphic Computing · Neuro-Symbolic AI · Object Detection · Trajectory Prediction
             · Cybersecurity</td>
         </tr>
+
+        <!-- Row 5: Specific libraries / frameworks -->
         <tr>
           <td class="skill-category">Tools</td>
           <td class="skill-items">Pydantic · Anthropic SDK · XGBoost · Habitat-Sim · Scikit-learn</td>
         </tr>
+
       </table>
     </div>
   </div>
 
-  <!-- PROJECTS -->
+  <!-- ============================================================
+       PROJECTS SECTION
+       Each .project-row is one project card.
+       To add a project: copy one .project-row block and edit it.
+       To remove a project: delete the whole .project-row block.
+
+       Inside each project row:
+         .project-label  — category (e.g. "Research", "Fintech / ML")
+         .project-title  — project name
+         .project-desc   — one or two sentence description
+         .project-tags-col — technology pills on the right
+           each <span class="ptag"> is one pill tag
+       ============================================================ -->
   <div id="projects">
     <div class="section-wrap reveal">
       <div class="section-header">
@@ -548,6 +662,7 @@
       </div>
       <div class="projects-list">
 
+        <!-- Project 1 -->
         <div class="project-row">
           <div>
             <p class="project-label">Multi-Agent System</p>
@@ -563,6 +678,7 @@
           </div>
         </div>
 
+        <!-- Project 2 -->
         <div class="project-row">
           <div>
             <p class="project-label">Research</p>
@@ -577,6 +693,7 @@
           </div>
         </div>
 
+        <!-- Project 3 -->
         <div class="project-row">
           <div>
             <p class="project-label">Trajectory Prediction</p>
@@ -591,6 +708,7 @@
           </div>
         </div>
 
+        <!-- Project 4 -->
         <div class="project-row">
           <div>
             <p class="project-label">Fintech / ML</p>
@@ -609,7 +727,11 @@
     </div>
   </div>
 
-  <!-- CONTACT -->
+  <!-- ============================================================
+       CONTACT SECTION
+       Left column  : short message + your email address
+       Right column : links to GitHub, LinkedIn, and Resume
+       ============================================================ -->
   <div id="contact">
     <div class="section-wrap reveal">
       <div class="section-header">
@@ -617,31 +739,50 @@
         <h2>Let's talk</h2>
       </div>
       <div class="contact-inner">
+
+        <!-- Left: message + email -->
         <div class="contact-left">
           <p>Open to research collaborations, internship opportunities, and interesting engineering challenges. Feel
             free to reach out.</p>
+          <!-- Replace the email address in both href and the visible text -->
           <a href="mailto:wangzixu0810@gmail.com" class="contact-email">wangzixu0810@gmail.com</a>
         </div>
+
+        <!-- Right: social links — replace the href values with your real URLs -->
         <div class="contact-right">
           <a href="https://github.com" target="_blank" class="contact-link-row">
+            <!-- TODO: replace https://github.com with your GitHub profile URL -->
             <span>GitHub</span><span>↗</span>
           </a>
           <a href="https://linkedin.com" target="_blank" class="contact-link-row">
+            <!-- TODO: replace https://linkedin.com with your LinkedIn profile URL -->
             <span>LinkedIn</span><span>↗</span>
           </a>
           <a href="#" class="contact-link-row">
+            <!-- TODO: replace # with the path to your resume PDF -->
             <span>Resume</span><span>↓</span>
           </a>
         </div>
+
       </div>
     </div>
   </div>
 
+  <!-- ============================================================
+       FOOTER
+       Change the name and affiliation text as needed.
+       ============================================================ -->
   <footer>
-    <p>© 2026 Zixu (Leon) Wang</p>
-    <p>UCF · Electrical &amp; Computer Engineering</p>
+    <p>© 2026 Zixu (Leon) Wang</p>       <!-- Copyright year + your name -->
+    <p>UCF · Electrical &amp; Computer Engineering</p>  <!-- Your school / department -->
   </footer>
 
+  <!-- ============================================================
+       JAVASCRIPT — scroll-reveal animation
+       No need to touch this. It watches each section and adds
+       the "on" CSS class when the section scrolls into view,
+       which triggers the fade-in animation.
+       ============================================================ -->
   <script>
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver(entries => {
